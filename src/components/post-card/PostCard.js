@@ -5,9 +5,9 @@ import './PostCard.scss';
 
 export function PostCard(props) {
   console.log(props);
-  // todo: достать пропсу comments из props ниже в 9й строке
-  const { post, hasImage } = props;
-
+  // donetodo: достать пропсу comments из props ниже в 9й строке
+  const { post, hasImage, author, comments } = props;
+  console.log(comments);
   console.log('hasImage', hasImage);
   const { title, body } = post;
 
@@ -57,6 +57,12 @@ export function PostCard(props) {
         <div className="card-text body">
           {body}
         </div>
+
+          <footer className="blockquote-footer">
+            {author}
+          </footer>
+
+
       </div>
 
     {/*  todo: здесь нужно показать массив коментариев к посту (comments), который прилетит в props
@@ -67,6 +73,9 @@ export function PostCard(props) {
           email - почта автора комментария
           body - текст комментария
     */}
+
+      {/*<Comment/>*/}
+
 
     </div>
   );
