@@ -3,8 +3,11 @@ import React from 'react';
 import { Header } from '../header/HeaderFromLecture';
 import { Footer } from '../footer/Footer';
 import TestCard, { PostCard as Card } from '../post-card/PostCard';
-import { postsList } from '../../constants'; // todo помимо константы postsList достать еще usersList
-// todo: тут сделать импорт  UserCard из components/user-card/UserCard
+import { postsList } from '../../constants';
+// donetodo помимо константы postsList достать еще usersList
+import {usersList} from "../../constants";
+// donetodo: тут сделать импорт  UserCard из components/user-card/UserCard
+import {UserCard} from "../user-card/UserCard";
 
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,25 +30,37 @@ function App() {
       <Header />
       <div>content will appear here soon</div>
 
-      {/*<div className="d-flex posts-container">*/}
-      {/*  {*/}
-      {/*    renderList()*/}
-      {/*  }*/}
-      {/*</div>*/}
+      <div className="d-flex posts-container">
+        {
+          renderList()
+        }
+      </div>
 
       <div className="d-flex posts-container">
         {
           postsList.map((item, index) => {
             const odd = index % 2 !== 0;
 
-            console.log(odd)
+            console.log(odd);
               return <Card post={item} key={item.id} hasImage={odd} />
           })
         }
       </div>
 
       <div className="d-flex posts-container">
-      {/*  todo: срендерить тут список пользователей, используя компонент UserCard */}
+      {/*  donetodo: срендерить тут список пользователей, используя компонент UserCard */}
+
+          {usersList.map(value => {
+              return (
+                <UserCard user={value} key={value.id}/>
+              )
+          })}
+
+          {/*<UserCard user={usersList[0]} />*/}
+          {/*<UserCard user={usersList[1]} />*/}
+          {/*<UserCard user={usersList[2]} />*/}
+          {/*<UserCard user={usersList[3]} />*/}
+
       </div>
 
       <Footer />
